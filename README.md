@@ -19,9 +19,7 @@ This project develops a Career Recommender System using the Field of Study vs. O
 Source Data
 The source data for this study comes from Field Of Study vs Occupation 1. This is a public dataset through Kaggle which is designed to offer an opportunity for various exploratory studies, including machine learning models. The source data is rich in that it contains 22 attributes and over 30,000 records of factors that concern the occupation of individuals. Below is a snapshot of a few of these features along with the distribution of the occupations.
 
-![data feautres and distribution screenshot](image/source_data_screenshot.png)
 <img width="797" alt="source_data_screenshot" src="https://github.com/user-attachments/assets/bf407512-249e-41f6-93dd-31ee168ffab2" />
-
 
 The dataset contains numerous useful features that are able to be leveraged to facilitate offering occupation recommendation for individuals based on their academic background, job preferences, and other factors. 
 The resulting data was consolidated by means of pre-processing, cleaning, and feature engineering which. This enabled the building of a recommender system which can suggest a career based on a user’s information.
