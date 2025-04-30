@@ -47,7 +47,7 @@ The resulting data was consolidated by means of pre-processing, cleaning, and fe
 
 - The dataset includes only **10 unique occupations**, which limits the variety in recommendations.
 
-## 📊 Exploratory Data Analysis (EDA)
+### 📊 Exploratory Data Analysis (EDA)
 
 To better understand the structure and quality of the dataset, I performed a series of exploratory steps and visualizations.
 
@@ -69,19 +69,8 @@ I explored the variety of occupations and fields of study:
 
 
 ## Methodology
-# Career Recommender Code Explained
 
-This README explains the code used in building a hybrid Career Recommender System, which combines both content-based and collaborative filtering techniques.
-
----
-
-**Imports**  
-The project uses libraries for data handling (Pandas, NumPy), machine learning (Scikit-learn), text processing (TF-IDF), and clustering (KMeans), among others. These libraries enable the system to process, analyze, and model the data efficiently.
-
----
-
-**Load Data**  
-The dataset containing user information and occupations is loaded from a CSV file for analysis and modeling.
+This explains the code used in building the hybrid Career Recommender System, which combines both content-based and collaborative filtering techniques.
 
 ---
 
