@@ -8,6 +8,7 @@ Table of Contents
 ---
    * [About the Project](#about-the-project)
    * [Source Data & Preprocessing](#source-data-preprocessing)
+   * [Code Explained](#code-explained)
    * [Methodology](#methodology)
    * [Results](#results)
    * [ADVANCED TOPICS](#advanced-topics)
@@ -19,7 +20,7 @@ Traditional career guidance often relies on generalized advice, human counselors
 This project develops a Career Recommender System using the Field of Study vs. Occupation dataset from Kaggle to analyze key factors such as job satisfaction, industry growth rate, and work-life balance. By integrating methodologies such as natural language processing (NLP), K-Means clustering, and feature engineering, the system filters careers and users to deliver personalized recommendations. The objective of the Career Recommender System is to aid individuals in taking a step towards making more informed career decisions.
 
 ## Source Data & Preprocessing
-## 📊 Dataset Overview
+## 📈 Dataset Overview
 
 - **Primary Data Source:**  
   The core dataset used in this project is from **Kaggle: Field of Study vs Occupation**.  
@@ -34,6 +35,10 @@ The resulting data was consolidated by means of pre-processing, cleaning, and fe
 
 ---
 
+## 📊 Exploratory Data Analysis (EDA)
+
+To better understand the structure and quality of the dataset, I performed a series of exploratory steps and visualizations.
+---
 ### 📈 Data Volume
 
 - **Rows:** 38,444  
@@ -46,10 +51,6 @@ The resulting data was consolidated by means of pre-processing, cleaning, and fe
 ### ⚠️ Limitations
 
 - The dataset includes only **10 unique occupations**, which limits the variety in recommendations.
-
-### 📊 Exploratory Data Analysis (EDA)
-
-To better understand the structure and quality of the dataset, I performed a series of exploratory steps and visualizations.
 
 ---
 
@@ -68,7 +69,7 @@ I explored the variety of occupations and fields of study:
 
 
 
-## Methodology
+## Code Explained
 
 This explains the code used in building the hybrid Career Recommender System, which combines both content-based and collaborative filtering techniques.
 
@@ -114,9 +115,72 @@ After collecting user input, the recommender system generates personalized caree
 
 ---
 
+**Random User Input Generation**  
+The function `generate_random_user_input()` generates a simulated user profile by randomly selecting values for various career-related features. These features include:
+- **Age**: A random value between 22 and 60.
+- **Years of Experience**: A random value between 0 and 40.
+- **Job Satisfaction**: A random value between 1 and 10.
+- **Work-Life Balance**: A random value between 1 and 10.
+- **Salary**: A random value between 30,000 and 150,000 USD.
+- **Job Opportunities**: A random value between 50 and 200 job opportunities.
+- **Professional Networks**: A random value between 1 and 10.
+- **Technology Adoption**: A random value between 1 and 10.
+- **Education Level**: A random choice from values [0, 1, 2, 3] representing different education levels (High School, Bachelor's, Master's, PhD).
+- **Mentorship Available**: A random choice of 0 or 1 (Yes/No).
+- **Certifications**: A random choice of 0 or 1 (Yes/No).
+- **Freelancing Experience**: A random choice of 0 or 1 (Yes/No).
+- **Geographic Mobility**: A random choice of 0 or 1 (Yes/No).
+- **Career Change Interest**: A random choice of 0 or 1 (Yes/No).
+
+This simulates the input that would be provided by a real user in the recommender system.
+
+---
+
+**Random Actual Occupations (Ground Truth)**  
+The function `generate_random_actual_occupations()` selects 3 random occupations from the list of unique occupations in the dataset (`career_df['Current Occupation'].unique()`). These are used as the "actual" occupations for the randomly generated user input, representing the user's real career choices. This helps evaluate the accuracy of the recommender system by comparing the recommended occupations with the actual ones.
+
+---
+
+**Top-N Accuracy Calculation**  
+The `calculate_top_n_accuracy()` function computes the accuracy of the recommender system by comparing the top-N recommended occupations with the actual (ground truth) occupations. It works as follows:
+- **Predictions**: The list of recommended occupations.
+- **Actual**: The actual occupations the user holds.
+- **Top-N Accuracy**: The ratio of matching occupations from the top-N recommended occupations to the total number of top-N occupations (in this case, N=3). It checks if the recommended occupations appear in the actual occupations set.
+
+This accuracy score gives an indication of how well the recommender system performs in suggesting the correct occupations.
+
+---
+
+**Hybrid Recommender System**  
+The `hybrid_recommender()` function is used to get the top-N recommended occupations for a given user input. It combines both content-based filtering and collaborative filtering:
+- **Content-Based Filtering**: Uses cosine similarity to compare the user’s features with other users' features to find the most similar profiles and recommend their occupations.
+- **Collaborative Filtering**: Uses KMeans clustering to group similar users together. The recommender suggests occupations based on the cluster the user belongs to.
+
+The function then returns the top-N recommended occupations, weighted by a given alpha parameter that controls the balance between the two methods.
+
+---
+
+**Evaluate Accuracy for Multiple Random Users**  
+This block of code tests the accuracy of the recommender system across 10 randomly generated users:
+1. **Generate random user input**: A random user profile is created using the `generate_random_user_input()` function.
+2. **Select random actual occupation**: A random occupation is selected from the dataset to simulate the user’s actual job.
+3. **Get hybrid recommendations**: The `hybrid_recommender()` function generates top-N career recommendations for the random user.
+4. **Calculate accuracy**: The `evaluate_accuracy()` function calculates how many of the recommended occupations match the user’s actual occupation.
+5. **Print results**: The results, including the actual occupation, recommended occupations, and top-N accuracy, are printed for each of the 10 random users.
+6. **Accumulate accuracy**: The accuracy for each random user is added to a list, and the average top-N accuracy is calculated and printed at the end.
+
+---
+
+**Average Top-N Accuracy**  
+At the end of the evaluation process, the average top-N accuracy across the 10 random users is calculated and displayed. This metric gives an overall indication of how well the recommender system is performing in terms of suggesting occupations that align with the actual career choices of the simulated users.
+
+
+---
+
 This hybrid system offers flexibility and adaptability by using both user similarity (content-based) and peer group behavior (collaborative) to guide career suggestions.
 
 ---
+## Methodology
 The Career Recommender System is developed through a hybrid model of content-based filtering and collaborative filtering. The data processing began by consolidating the dataset to incorporate features that captured both the user’s background and job information. 
 
 Feature engineering was performed to encode categorical attributes (e.g., Education Level) from categorical to ordinal values. The dataset was also split into two feature types – numerical features and binary features – through feature selection. All the features were then standardized to normalize their scaling.
