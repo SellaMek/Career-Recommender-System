@@ -21,13 +21,10 @@ This project develops a Career Recommender System using the Field of Study vs. O
 ## Source Data & Preprocessing
 ## 📊 Dataset Overview
 
-### 🔍 Finding Data
-
 - **Primary Data Source:**  
   The core dataset used in this project is from **Kaggle: Field of Study vs Occupation**.  
   [View on Kaggle](https://www.kaggle.com/datasets/jahnavipaliwal/field-of-study-vs-occupation)
 
-**Source Data**
 The source data for this study comes from Field Of Study vs Occupation 1. This is a public dataset through Kaggle which is designed to offer an opportunity for various exploratory studies, including machine learning models. The source data is rich in that it contains 22 attributes and over 30,000 records of factors that concern the occupation of individuals. Below is a snapshot of a few of these features along with the distribution of the occupations.
 
 <img width="700" alt="source_data_screenshot" src="https://github.com/user-attachments/assets/bf407512-249e-41f6-93dd-31ee168ffab2" />
@@ -44,25 +41,6 @@ The resulting data was consolidated by means of pre-processing, cleaning, and fe
 
 ---
 
-### 📌 Key Features Used
-
-The following features were selected for building the Career Recommender System:
-
-- Age  
-- Years of Experience  
-- Education Level  
-- Industry Growth Rate  
-- Work-Life Balance  
-- Job Opportunities  
-- Salary  
-- Job Security  
-- Skills Gap  
-- Certifications  
-- Career Change Events  
-- Likely to Change Occupation  
-
----
-
 ### 📈 Data Volume
 
 - **Rows:** 38,444  
@@ -75,6 +53,65 @@ The following features were selected for building the Career Recommender System:
 ### ⚠️ Limitations
 
 - The dataset includes only **10 unique occupations**, which limits the variety in recommendations:
+
+## 📊 Exploratory Data Analysis (EDA)
+
+To better understand the structure and quality of the dataset, I performed a series of exploratory steps and visualizations.
+
+---
+
+### 🧮 Initial Dataset Overview
+
+- The dataset was loaded and inspected using `.head()` to view the first few entries.
+- A `.count()` check was conducted to confirm how many non-null values were present per column.
+
+---
+
+### ❗ Missing Data
+
+I identified missing values in several columns using `.isnull().sum()`. The most notable case was:
+
+- `Family Influence`: 9,632 missing entries  
+  👉 This feature was **dropped** due to the large volume of missing data.
+
+---
+
+### 💼 Unique Categories
+
+I explored the variety of occupations and fields of study:
+
+- **Current Occupations:**  
+  The dataset contains **10 unique occupations** including:  
+  `['Business Analyst', 'Economist', 'Biologist', 'Doctor', 'Lawyer', 'Software Developer', 'Artist', 'Psychologist', 'Teacher', 'Mechanical Engineer']`
+
+- **Fields of Study:**  
+  The dataset includes a broader range of unique fields, such as Computer Science, Biology, Engineering, Law, Psychology, and more.
+
+---
+
+### 📊 Visualizations
+
+#### Distribution of Current Occupations
+
+![Occupation Distribution](#)
+
+A `countplot` was used to display the distribution of the 10 current occupations in the dataset. This plot helped highlight which roles are most frequently represented.
+
+#### Distribution of Fields of Study
+
+![Field of Study Distribution](#)
+
+Another `countplot` visualized the distribution of various fields of study among individuals in the dataset.
+
+#### Distribution of Education Level
+
+![Education Level Distribution](#)
+
+This chart shows how different education levels are represented in the dataset, revealing patterns in academic backgrounds tied to career paths.
+
+---
+
+These insights were used to inform feature engineering, model design, and limitations in recommendation diversity.
 
 
 
@@ -107,7 +144,7 @@ The Career Recommender System is currently at a functional stage which can provi
 An additional objective is to create a user interface which allows individuals to utilize the Career Recommender System along with implementation of more specific questions targeting a wider range of career options. Along with this can be the integration of connecting users to sources that provide current available jobs within the field that they are suggested and would like to explore.
 
 - **Additional Data (Planned):**  
-  We plan to **web-scrape** career descriptions using the  
+  I plan to **web-scrape** career descriptions using the  
   **U.S. Bureau of Labor Statistics Occupational Outlook Handbook**:  
   [Occupational Outlook Handbook A-Z Index](https://www.bls.gov/ooh/a-z-index.htm)
 
