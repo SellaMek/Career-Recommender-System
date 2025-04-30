@@ -211,8 +211,6 @@ Feature engineering steps included:
 - **Feature Selection** to isolate relevant `numerical_features` and `binary_features` for clustering and recommendation (e.g., Age, Job Satisfaction, Certifications, etc.).
 - **Feature Scaling** using `StandardScaler` to normalize data and ensure equal weighting across features.
 
-These transformations ensured the dataset was in optimal condition for both clustering and content-based similarity computations.
-
 ### **📌 Interactive Visualization (0.5 point)**
 **Interactive Scatter Plot: Salary vs. Job Satisfaction**
 
