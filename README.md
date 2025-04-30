@@ -69,6 +69,65 @@ I explored the variety of occupations and fields of study:
 
 
 ## Methodology
+# Career Recommender Code Explained
+
+This README explains the code used in building a hybrid Career Recommender System, which combines both content-based and collaborative filtering techniques.
+
+---
+
+**Imports**  
+The project uses libraries for data handling (Pandas, NumPy), machine learning (Scikit-learn), text processing (TF-IDF), and clustering (KMeans), among others. These libraries enable the system to process, analyze, and model the data efficiently.
+
+---
+
+**Load Data**  
+The dataset containing user information and occupations is loaded from a CSV file for analysis and modeling.
+
+---
+
+**Encode Education Level**  
+Education levels are converted from text categories (e.g., High School, Bachelor's, etc.) into numerical values, which are easier to process in machine learning models. The original column is replaced with this encoded version.
+
+---
+
+**Feature Selection**  
+Two types of features are selected: numerical features like age and salary, and binary features like whether the user has certifications or freelancing experience. These features are used as inputs for model training.
+
+---
+
+**Data Scaling**  
+All feature values are standardized to ensure that each feature contributes equally to the model. This helps improve the performance of clustering and similarity comparisons.
+
+---
+
+**KMeans Clustering**  
+KMeans is used for collaborative filtering. It groups similar users into clusters based on their scaled feature profiles. Recommendations are based on the occupations of others within the same cluster.
+
+---
+
+**TF-IDF Vectorization**  
+Text data in the "Current Occupation" column is vectorized using TF-IDF, which helps transform job titles into a numerical format that reflects the importance of each term. This enables content-based filtering.
+
+---
+
+**Hybrid Recommender Function**  
+A custom function combines collaborative and content-based scores to produce personalized job recommendations. The content-based part identifies similar users based on overall profiles, while the collaborative part identifies users in the same KMeans cluster. Scores are weighted using an `alpha` parameter, and the highest-ranking jobs are recommended.
+
+---
+
+**Get User Input Function**  
+A command-line interface prompts users to enter details about their age, experience, job preferences, and background. This input is processed and passed into the recommender system.
+
+---
+
+**Run the Recommender**  
+After collecting user input, the recommender system generates personalized career recommendations based on a hybrid approach. The results are printed to the console.
+
+---
+
+This hybrid system offers flexibility and adaptability by using both user similarity (content-based) and peer group behavior (collaborative) to guide career suggestions.
+
+---
 The Career Recommender System is developed through a hybrid model of content-based filtering and collaborative filtering. The data processing began by consolidating the dataset to incorporate features that captured both the user’s background and job information. 
 
 Feature engineering was performed to encode categorical attributes (e.g., Education Level) from categorical to ordinal values. The dataset was also split into two feature types – numerical features and binary features – through feature selection. All the features were then standardized to normalize their scaling.
