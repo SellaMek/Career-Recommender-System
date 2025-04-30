@@ -28,6 +28,26 @@ The source data for this study comes from Field Of Study vs Occupation 1. This i
 The dataset contains numerous useful features that are able to be leveraged to facilitate offering occupation recommendation for individuals based on their academic background, job preferences, and other factors. 
 The resulting data was consolidated by means of pre-processing, cleaning, and feature engineering which. This enabled the building of a recommender system which can suggest a career based on a user’s information.
 
+## Preprocessing
+
+
+
+## Methodology
+he Career Recommender System is developed through a hybrid model of content-based filtering and collaborative filtering. The data processing began by consolidating the dataset to incorporate features that captured both the user’s background and job information. 
+
+Feature engineering was performed to encode categorical attributes (e.g., Education Level) from categorical to ordinal values. The dataset was also split into two feature types – numerical features and binary features – through feature selection. All the features were then standardized to normalize their scaling.
+
+K-Means clustering was implemented for collaborative filtering. Each of the users were assigned to a cluster, as shown in Figure 1,  based on their profile. The system then retrieves the occupations of other users who are, in essence, similar peers in the same cluster.
+
+<img width="504" alt="kmeans_screenshot" src="https://github.com/user-attachments/assets/a9dbfc99-ef2d-45ae-8919-63ec2f82913e" />
+
+Natural Language Processing (NLP) was conducted for content-based filtering (Figure 2). This was done through a TF-IDF Vectorizer. This vectorizer was applied to the “Current Occupation” column in analyze the text data of each occupation. Cosine similarity was used to compare the user’s information to other users and find the 20 most similar individuals. The jobs of the similar users are then counted and normalized to generate scores.  
+
+<img width="573" alt="tf_idf_screenshot" src="https://github.com/user-attachments/assets/f654ff81-599d-41d1-8037-c16e7659808a" />
+
+A hybrid model was then developed by combining both the scores from collaborative and content-based filtering. The two scores are combined using a weighted average with an alpha value. The weight of alpha is a hyperparameter which can control the influence of each the scores. The alpha can be tuned to test which value will give the best accuracy. The system will finally return the top three highest-scoring occupations as recommendations to the user.
+
+
 ## Results
 The Career Recommender System results in a user interaction which prompts the user to input their information. The Command Line Interface (CLI) based form allows the individual to insert background and career-interest information. The user inputs are a combination of numerical and binary values, as shown in Figure 3. 
 To test the accuracy of the recommender system, a random user input generator which is then compared to the random user’s actual top nearest occupations was implemented. An accuracy score was then calculated based on the two factors. This resulted in an accuracy score of 0.6667 on average. While this score is not high, it does indicate that, on average, the recommender system suggests the user with 2 out of 3 careers that align with their actual nearest occupations.
