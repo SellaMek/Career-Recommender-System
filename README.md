@@ -213,9 +213,19 @@ Feature engineering steps included:
 These transformations ensured the dataset was in optimal condition for both clustering and content-based similarity computations.
 
 
-### **📌 Interactive visualization (0.5 point)**
-Create a chart with filters by industry, including useful features
-Salary range, education level, job opportunities, etc.
+### **📌 Interactive Visualization (0.5 point)**
+**Interactive Scatter Plot: Salary vs. Job Satisfaction**
+
+This interactive scatter plot visualizes the relationship between salary and job satisfaction, with each point representing an individual from the dataset. 
+
+- **X-axis:** Salary  
+- **Y-axis:** Job Satisfaction  
+- **Color:** K-Means cluster label  
+- **Hover Info:** Current Occupation, Age, Years of Experience
+
+The plot helps identify patterns in how salary and satisfaction vary across different career clusters, allowing for an intuitive understanding of career trends and user groupings.
+
+<img width="1374" alt="interactive_vis_screenshot" src="https://github.com/user-attachments/assets/01441c79-da87-4ef9-b98d-f4b9948d27c5" />
 
 ### **📌 Web Scraping with Selenium (1 point)**
 While the Web Scraping was not implemented into the final system, I did begin attempting it and found that it works for this. I simply wanted to add it here since I also included the code file to my repo, not in expectation of the point.
