@@ -71,7 +71,7 @@ I explored the variety of occupations and fields of study:
 
 ## Code Explained
 
-This explains the code used in building the hybrid Career Recommender System, which combines both content-based and collaborative filtering techniques.
+### This explains the code used in building the hybrid Career Recommender System, which combines both content-based and collaborative filtering techniques.
 
 ---
 
@@ -116,23 +116,7 @@ After collecting user input, the recommender system generates personalized caree
 ---
 
 **Random User Input Generation**  
-The function `generate_random_user_input()` generates a simulated user profile by randomly selecting values for various career-related features. These features include:
-- **Age**: A random value between 22 and 60.
-- **Years of Experience**: A random value between 0 and 40.
-- **Job Satisfaction**: A random value between 1 and 10.
-- **Work-Life Balance**: A random value between 1 and 10.
-- **Salary**: A random value between 30,000 and 150,000 USD.
-- **Job Opportunities**: A random value between 50 and 200 job opportunities.
-- **Professional Networks**: A random value between 1 and 10.
-- **Technology Adoption**: A random value between 1 and 10.
-- **Education Level**: A random choice from values [0, 1, 2, 3] representing different education levels (High School, Bachelor's, Master's, PhD).
-- **Mentorship Available**: A random choice of 0 or 1 (Yes/No).
-- **Certifications**: A random choice of 0 or 1 (Yes/No).
-- **Freelancing Experience**: A random choice of 0 or 1 (Yes/No).
-- **Geographic Mobility**: A random choice of 0 or 1 (Yes/No).
-- **Career Change Interest**: A random choice of 0 or 1 (Yes/No).
-
-This simulates the input that would be provided by a real user in the recommender system.
+The function `generate_random_user_input()` generates a simulated user profile by randomly selecting values for various career-related features. This simulates the input that would be provided by a real user in the recommender system.
 
 ---
 
@@ -173,11 +157,6 @@ This block of code tests the accuracy of the recommender system across 10 random
 
 **Average Top-N Accuracy**  
 At the end of the evaluation process, the average top-N accuracy across the 10 random users is calculated and displayed. This metric gives an overall indication of how well the recommender system is performing in terms of suggesting occupations that align with the actual career choices of the simulated users.
-
-
----
-
-This hybrid system offers flexibility and adaptability by using both user similarity (content-based) and peer group behavior (collaborative) to guide career suggestions.
 
 ---
 ## Methodology
