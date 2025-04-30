@@ -32,13 +32,6 @@ The source data for this study comes from Field Of Study vs Occupation 1. This i
 The dataset contains numerous useful features that are able to be leveraged to facilitate offering occupation recommendation for individuals based on their academic background, job preferences, and other factors. 
 The resulting data was consolidated by means of pre-processing, cleaning, and feature engineering which. This enabled the building of a recommender system which can suggest a career based on a user’s information.
 
-
-
-- **Additional Data (Planned):**  
-  We plan to **web-scrape** career descriptions using the  
-  **U.S. Bureau of Labor Statistics Occupational Outlook Handbook**:  
-  [Occupational Outlook Handbook A-Z Index](https://www.bls.gov/ooh/a-z-index.htm)
-
 ---
 
 ### 📈 Data Volume
@@ -46,33 +39,17 @@ The resulting data was consolidated by means of pre-processing, cleaning, and fe
 - **Rows:** 38,444  
 - **Total Features:** 22  
 - **Missing Data:**  
-  - `Family Influence` feature has **9,632 missing entries** and will be **dropped** from the analysis.
+  - `Family Influence` feature has **9,632 missing entries** but was not used in the system, so it did not make an impact.
 
 ---
 
 ### ⚠️ Limitations
 
-- The dataset includes only **10 unique occupations**, which limits the variety in recommendations:
+- The dataset includes only **10 unique occupations**, which limits the variety in recommendations.
 
 ## 📊 Exploratory Data Analysis (EDA)
 
 To better understand the structure and quality of the dataset, I performed a series of exploratory steps and visualizations.
-
----
-
-### 🧮 Initial Dataset Overview
-
-- The dataset was loaded and inspected using `.head()` to view the first few entries.
-- A `.count()` check was conducted to confirm how many non-null values were present per column.
-
----
-
-### ❗ Missing Data
-
-I identified missing values in several columns using `.isnull().sum()`. The most notable case was:
-
-- `Family Influence`: 9,632 missing entries  
-  👉 This feature was **dropped** due to the large volume of missing data.
 
 ---
 
@@ -85,38 +62,14 @@ I explored the variety of occupations and fields of study:
   `['Business Analyst', 'Economist', 'Biologist', 'Doctor', 'Lawyer', 'Software Developer', 'Artist', 'Psychologist', 'Teacher', 'Mechanical Engineer']`
 
 - **Fields of Study:**  
-  The dataset includes a broader range of unique fields, such as Computer Science, Biology, Engineering, Law, Psychology, and more.
+  The dataset includes **10 unique fields**, such as Computer Science, Biology, Engineering, Law, Psychology, and more.
 
 ---
-
-### 📊 Visualizations
-
-#### Distribution of Current Occupations
-
-![Occupation Distribution](#)
-
-A `countplot` was used to display the distribution of the 10 current occupations in the dataset. This plot helped highlight which roles are most frequently represented.
-
-#### Distribution of Fields of Study
-
-![Field of Study Distribution](#)
-
-Another `countplot` visualized the distribution of various fields of study among individuals in the dataset.
-
-#### Distribution of Education Level
-
-![Education Level Distribution](#)
-
-This chart shows how different education levels are represented in the dataset, revealing patterns in academic backgrounds tied to career paths.
-
----
-
-These insights were used to inform feature engineering, model design, and limitations in recommendation diversity.
 
 
 
 ## Methodology
-he Career Recommender System is developed through a hybrid model of content-based filtering and collaborative filtering. The data processing began by consolidating the dataset to incorporate features that captured both the user’s background and job information. 
+The Career Recommender System is developed through a hybrid model of content-based filtering and collaborative filtering. The data processing began by consolidating the dataset to incorporate features that captured both the user’s background and job information. 
 
 Feature engineering was performed to encode categorical attributes (e.g., Education Level) from categorical to ordinal values. The dataset was also split into two feature types – numerical features and binary features – through feature selection. All the features were then standardized to normalize their scaling.
 
@@ -149,3 +102,18 @@ An additional objective is to create a user interface which allows individuals t
   [Occupational Outlook Handbook A-Z Index](https://www.bls.gov/ooh/a-z-index.htm)
 
 ## ADVANCED TOPICS
+**NLP (2 points)**
+
+
+**K-Means Clustering (1 point)**
+
+
+**Feature Engineering (0.5 point)** 
+Ordinal encoding
+
+**Interactive visualization (0.5 point)** - In progress
+Create a chart with filters by industry, including useful features
+Salary range, education level, job opportunities, etc.
+
+**Web Scraping with Selenium (1 point)**
+
