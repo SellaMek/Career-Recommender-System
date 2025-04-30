@@ -29,6 +29,52 @@ The dataset contains numerous useful features that are able to be leveraged to f
 The resulting data was consolidated by means of pre-processing, cleaning, and feature engineering which. This enabled the building of a recommender system which can suggest a career based on a user’s information.
 
 ## Preprocessing
+## 📊 Dataset Overview
+
+### 🔍 Finding Data
+
+- **Primary Data Source:**  
+  The core dataset used in this project is from **Kaggle: Field of Study vs Occupation**.  
+  [View on Kaggle](https://www.kaggle.com/datasets/jahnavipaliwal/field-of-study-vs-occupation)
+
+- **Additional Data (Planned):**  
+  We plan to **web-scrape** career descriptions using the  
+  **U.S. Bureau of Labor Statistics Occupational Outlook Handbook**:  
+  [Occupational Outlook Handbook A-Z Index](https://www.bls.gov/ooh/a-z-index.htm)
+
+---
+
+### 📌 Key Features Used
+
+The following features were selected for building the Career Recommender System:
+
+- Age  
+- Years of Experience  
+- Education Level  
+- Industry Growth Rate  
+- Work-Life Balance  
+- Job Opportunities  
+- Salary  
+- Job Security  
+- Skills Gap  
+- Certifications  
+- Career Change Events  
+- Likely to Change Occupation  
+
+---
+
+### 📈 Data Volume
+
+- **Rows:** 38,444  
+- **Total Features:** 22  
+- **Missing Data:**  
+  - `Family Influence` feature has **9,632 missing entries** and will be **dropped** from the analysis.
+
+---
+
+### ⚠️ Limitations
+
+- The dataset includes only **10 unique occupations**, which limits the variety in recommendations:
 
 
 
