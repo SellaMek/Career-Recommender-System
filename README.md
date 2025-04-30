@@ -200,7 +200,7 @@ Natural Language Processing (NLP) was implemented using **TF-IDF Vectorization**
 ---
 
 ### **📌 K-Means Clustering (1 point)**
-K-Means clustering was applied for collaborative filtering by segmenting users into distinct clusters based on shared characteristics. Before clustering, all selected numerical and binary features were standardized using `StandardScaler`. The algorithm grouped users into 5 clusters. When a new user input is provided, the system predicts the cluster they belong to and recommends careers commonly found in that group, effectively learning from patterns among peer users.
+K-Means clustering was applied for collaborative filtering by segmenting users into distinct clusters based on shared characteristics. Before clustering, all selected numerical and binary features were standardized using `StandardScaler`. The algorithm grouped users into 5 clusters. When a new user input is provided, the system predicts the cluster they belong to and recommends careers commonly found in that group by learning from patterns among peer users.
 
 ---
 
@@ -212,7 +212,6 @@ Feature engineering steps included:
 
 These transformations ensured the dataset was in optimal condition for both clustering and content-based similarity computations.
 
-
 ### **📌 Interactive Visualization (0.5 point)**
 **Interactive Scatter Plot: Salary vs. Job Satisfaction**
 
@@ -222,8 +221,6 @@ This interactive scatter plot visualizes the relationship between salary and job
 - **Y-axis:** Job Satisfaction  
 - **Color:** K-Means cluster label  
 - **Hover Info:** Current Occupation, Age, Years of Experience
-
-The plot helps identify patterns in how salary and satisfaction vary across different career clusters, allowing for an intuitive understanding of career trends and user groupings.
 
 <img width="1374" alt="interactive_vis_screenshot" src="https://github.com/user-attachments/assets/01441c79-da87-4ef9-b98d-f4b9948d27c5" />
 
