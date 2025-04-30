@@ -193,18 +193,30 @@ An additional objective is to create a user interface which allows individuals t
   [Occupational Outlook Handbook A-Z Index](https://www.bls.gov/ooh/a-z-index.htm)
 
 ## ADVANCED TOPICS
-**NLP (2 points)**
+
+### **📌 NLP (2 points)**
+Natural Language Processing (NLP) was implemented using **TF-IDF Vectorization** on the `Current Occupation` field. This technique transformed occupation titles into numerical feature vectors by calculating the importance of each term across all job titles, while excluding common English stop words. These vectors were then used to compute **cosine similarity** between user profiles and existing occupations. This forms the **content-based filtering** component of the hybrid recommender system, helping to match users to careers that are textually similar to those held by others with similar backgrounds.
+
+---
+
+### **📌 K-Means Clustering (1 point)**
+K-Means clustering was applied for collaborative filtering by segmenting users into distinct clusters based on shared characteristics. Before clustering, all selected numerical and binary features were standardized using `StandardScaler`. The algorithm grouped users into 5 clusters. When a new user input is provided, the system predicts the cluster they belong to and recommends careers commonly found in that group, effectively learning from patterns among peer users.
+
+---
+
+### **📌 Feature Engineering (0.5 point)**
+Feature engineering steps included:
+- **Ordinal Encoding** of categorical data like education level (`High School` → 0, `Bachelor's` → 1, etc.).
+- **Feature Selection** to isolate relevant `numerical_features` and `binary_features` for clustering and recommendation (e.g., Age, Job Satisfaction, Certifications, etc.).
+- **Feature Scaling** using `StandardScaler` to normalize data and ensure equal weighting across features.
+
+These transformations ensured the dataset was in optimal condition for both clustering and content-based similarity computations.
 
 
-**K-Means Clustering (1 point)**
-
-
-**Feature Engineering (0.5 point)** 
-Ordinal encoding
-
-**Interactive visualization (0.5 point)** - In progress
+### **📌 Interactive visualization (0.5 point)**
 Create a chart with filters by industry, including useful features
 Salary range, education level, job opportunities, etc.
 
-**Web Scraping with Selenium (1 point)**
+### **📌 Web Scraping with Selenium (1 point)**
+While the Web Scraping was not implemented into the final system, I did begin attempting it and found that it works for this. I simply wanted to add it here since I also included the code file to my repo, not in expectation of the point.
 
