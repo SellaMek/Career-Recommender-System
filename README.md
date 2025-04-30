@@ -114,6 +114,7 @@ A command-line interface prompts users to enter details about their age, experie
 After collecting user input, the recommender system generates personalized career recommendations based on a hybrid approach. The results are printed to the console.
 
 ---
+### Random User
 
 **Random User Input Generation**  
 The function `generate_random_user_input()` generates a simulated user profile by randomly selecting values for various career-related features. This simulates the input that would be provided by a real user in the recommender system.
